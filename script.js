@@ -9,3 +9,9 @@ function getComputerChoice(){
         return "scissors"
     }
 }
+
+function getHumanChoice(){
+   let humanChoice =  prompt("CHOOSE YOUR FIGHTER: Rock, Paper, or Scissors? What will it be?")
+   console.log(humanChoice)
+   return humanChoice
+}

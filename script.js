@@ -48,7 +48,11 @@ function playRound(human, computer){
     }else if (humanLower === "scissors" && computerLower === "scissors"){
         alert("Tie!Play again");
         return 0
+    }else{
+        alert("Gibberish Alert! The only acceptable options are 'Rock', 'Paper', or 'Scissors'.Try again.")
+        return 0
     }
+
 }
 
 function playGame(){

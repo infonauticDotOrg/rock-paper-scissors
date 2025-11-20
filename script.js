@@ -1,0 +1,1 @@
+alert("if you see me, js works!");

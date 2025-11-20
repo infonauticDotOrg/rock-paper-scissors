@@ -1,10 +1,3 @@
-let humanScore = 0;
-let computerScore = 0;
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection)
 function getComputerChoice(){
     let computerChoice = Math.floor(Math.random() * 3);
     console.log(computerChoice);
@@ -36,6 +29,7 @@ function playRound(human, computer){
         humanScore++;
     }else if (humanLower === "rock" && computerLower === "rock"){
         alert("Tie!Play again");
+        return 0
     }else if (humanLower === "paper" && computerLower === "rock"){
         alert("You win!");
         humanScore++;
@@ -44,6 +38,7 @@ function playRound(human, computer){
         computerScore++;
     }else if (humanLower === "paper" && computerLower === "paper"){
         alert("Tie!Play again");
+        return 0
     }else if (humanLower === "scissors" && computerLower === "rock"){
         alert("You lose!");
         computerScore++;
@@ -52,6 +47,27 @@ function playRound(human, computer){
         humanScore++;
     }else if (humanLower === "scissors" && computerLower === "scissors"){
         alert("Tie!Play again");
+        return 0
     }
-    alert(humanSelection + computerSelection)
 }
+
+function playGame(){
+    for (let i=0; i<=4; i++){
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice();
+        let repeat = playRound(humanSelection, computerSelection);
+        if (repeat === 0){
+            i--;
+        }
+        alert("Current Score - You:"+humanScore+" CPU: "+computerScore) 
+    }
+    alert("FINAL SCORE - You:"+humanScore+" CPU: "+computerScore) 
+}
+
+let humanScore = 0;
+let computerScore = 0;
+
+let humanSelection ;
+let computerSelection;
+
+playGame()

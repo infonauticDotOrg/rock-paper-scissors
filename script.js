@@ -22,37 +22,36 @@ function playRound(human, computer){
     console.log(humanLower)
     console.log(computerLower)
     if (humanLower === "rock" && computerLower === "paper"){
-        alert("You lose!");
+        alert("You lose! "+ "Computer Pete chose: "+computerLower);
         computerScore++;
     }else if (humanLower === "rock" && computerLower === "scissors"){
-        alert("You win!");
+        alert("You win! "+ "Computer Pete chose: "+computerLower);
         humanScore++;
     }else if (humanLower === "rock" && computerLower === "rock"){
         alert("Tie!Play again");
         return 0
     }else if (humanLower === "paper" && computerLower === "rock"){
-        alert("You win!");
+        alert("You win! " + "Computer chose: "+computerLower);
         humanScore++;
     }else if (humanLower === "paper" && computerLower === "scissors"){
-        alert("You lose!");
+        alert("You lose! "+ "Computer chose: "+computerLower);
         computerScore++;
     }else if (humanLower === "paper" && computerLower === "paper"){
         alert("Tie!Play again");
         return 0
     }else if (humanLower === "scissors" && computerLower === "rock"){
-        alert("You lose!");
+        alert("You lose! "+ "Computer chose: "+computerLower);
         computerScore++;
     }else if (humanLower === "scissors" && computerLower === "paper"){
-        alert("You win!");
+        alert("You win! "+ "Computer chose: "+computerLower);
         humanScore++;
     }else if (humanLower === "scissors" && computerLower === "scissors"){
         alert("Tie!Play again");
         return 0
     }else{
-        alert("Gibberish Alert! The only acceptable options are 'Rock', 'Paper', or 'Scissors'.Try again.")
+        alert("Gibberish Alert! The only acceptable options are 'Rock', 'Paper', or 'Scissors'. Try again.")
         return 0
     }
-
 }
 
 function playGame(){

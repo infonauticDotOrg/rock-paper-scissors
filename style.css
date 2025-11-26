@@ -2,6 +2,12 @@
     font-family: 'Retro Pixel', sans-serif;
 }
 
+.body-container{
+    max-width:1500px;
+    padding:20em 25%;
+    min-width:259px;
+}
+
 .container{
     display:flex;
 }
@@ -9,33 +15,50 @@
 .choice-block{
     border:solid red;
     flex:1;
-    height: 500px;
+    min-height: 500px;
 }
-
 
 .header{
     border:solid red;
-    height: 300px;
+    min-height: 300px;
     align-content:center;
     text-align:center;
     display: flex;
     flex-direction:column;
+    flex-wrap: wrap;
 }
 
 .header h1{
     font-size:xx-large;
 }
 
+/*.play{
+    align-self:center;
+    justify-content:center;
+    border:solid red;
+    margin:103px 0;
+    font-size:xx-large;
+}*/
+
 .score-container{
     display:flex;
-    gap:100px;
     justify-content: space-around;
+    border: solid red;
+    margin-left:100px;
+    margin-right:100px;
+    align-content:center;
+    gap:20px;
+}
 
+.score{
+    align-self:center
 }
 
 
 .footer{
-    padding: 15px;
     text-align:center;
     border: solid red;
+    max-width:1900px;
+    padding:15px 50px;
+
 }

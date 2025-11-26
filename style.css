@@ -40,6 +40,18 @@ img{
     font-size:xx-large;
 }
 
+.results{
+    margin-top: 50px;
+    border: rgb(58, 54, 80);
+    display:flex;
+}
+
+.overtext{
+    font-size:x-large;
+    border:rgb(58, 54, 80);
+}
+
+
 .score-container{
     display:flex;
     justify-content: space-around;

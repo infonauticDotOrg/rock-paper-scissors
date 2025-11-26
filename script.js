@@ -95,6 +95,11 @@ function finishRound(score1, score2){ //my naming should have been better, too m
         finalCheck.appendChild(scoreP)
         humanScore = 0
         computerScore = 0
+        let playAgain = document.createElement("button")
+        playAgain.textContent ="PLAY AGAIN?!"
+        playAgain.setAttribute("id", "final")
+        finalCheck.appendChild(playAgain)
+
     }else if (computerScore == 5){
         if (check){
             check.remove()
@@ -104,6 +109,10 @@ function finishRound(score1, score2){ //my naming should have been better, too m
         finalCheck.appendChild(scoreP)
         humanScore = 0
         computerScore = 0
+        let playAgain = document.createElement("button")
+        playAgain.textContent ="PLAY AGAIN?"
+        playAgain.setAttribute("id", "final")
+        finalCheck.appendChild(playAgain)
     }
 }
 

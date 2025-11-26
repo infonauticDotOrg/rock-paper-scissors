@@ -2,12 +2,14 @@
     font-family: 'Retro Pixel', sans-serif;
     color:white;
     background-color: rgb(16, 13, 31);
+    margin-left:0;
+    padding-left:0;
 }
 
 .body-container{
-    max-width:2000px;
-    padding:20em 25%;
-    min-width:300px;
+    max-width:200em;
+    padding:10em 10em;
+    min-width:10em;
     display:flex;
     flex-direction: column;
     flex-wrap:wrap;
@@ -19,6 +21,7 @@
     border:solid rgb(58, 54, 80);
     padding:50px 0;
     border-top:none;
+    margin-left:0;
 }
 
 #printed{
@@ -40,13 +43,14 @@
 
 img{
     flex:1;
-    height:150px;
-    width:120px;
+    height:130px;
+    width:100px;
+    padding-left:10px;
 }
 
 .header{
     border:solid rgb(58, 54, 80);
-    min-height: 200px;
+    min-height: 10em;
     align-content:center;
     text-align:center;
     display: flex;
@@ -63,6 +67,7 @@ img{
     display:flex;
     justify-content:center;
     font-size:large;
+    flex-direction:column;
 }
 
 .overtext{
@@ -88,7 +93,6 @@ img{
 .footer{
     text-align:center;
     border: rgb(58, 54, 80);
-    max-width:1900px;
+    max-width:200em;
     padding:15px 50px;
-
 }

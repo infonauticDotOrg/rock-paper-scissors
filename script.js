@@ -73,4 +73,4 @@ let computerScore = 0;
 let humanSelection ;
 let computerSelection;
 
-playGame()
+//playGame()

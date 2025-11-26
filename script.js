@@ -1,6 +1,6 @@
 function getComputerChoice(){
     let computerChoice = Math.floor(Math.random() * 3);
-    console.log(computerChoice);
+    //console.log(computerChoice);
     if (computerChoice === 1 ){
         return "paper";
     }else if (computerChoice === 2){
@@ -16,37 +16,65 @@ function getHumanChoice(){
    return humanChoice;
 }
 
-function playRound(human, computer){
+function playRound(human, computer){ //this function is monstrous and needs refactoring
     humanLower = human.toLowerCase();
     computerLower = computer.toLowerCase();
-    console.log(humanLower)
-    console.log(computerLower)
+    //console.log(humanLower)
+    //console.log(computerLower)
+    const results = document.querySelector(".results");
+    const scoreP = document.createElement("p");
     if (humanLower === "rock" && computerLower === "paper"){
-        alert("You lose! "+ "Computer Pete chose: "+computerLower);
+        //alert("You lose! "+ "Computer Pete chose: "+computerLower);
+        scoreP.textContent = "You lose! "+ "Computer Pete chose: "+computerLower
+        scoreP.setAttribute("id", "printed")
+        results.appendChild(scoreP)
         computerScore++;
+        finishRound(humanScore, computerScore)
+        return
     }else if (humanLower === "rock" && computerLower === "scissors"){
-        alert("You win! "+ "Computer Pete chose: "+computerLower);
+        scoreP.textContent = "You win! "+ "Computer Pete chose: "+computerLower;
+        scoreP.setAttribute("id", "printed")
+        results.appendChild(scoreP)
         humanScore++;
+        finishRound(humanScore, computerScore)
     }else if (humanLower === "rock" && computerLower === "rock"){
-        alert("Tie!Play again");
+        scoreP.setAttribute("id", "printed")
+        results.appendChild(scoreP)
+        scoreP.textContent ="Tie!Play again";
         return 0
     }else if (humanLower === "paper" && computerLower === "rock"){
-        alert("You win! " + "Computer chose: "+computerLower);
+        scoreP.textContent = "You win! " + "Computer chose: "+computerLower;
+        scoreP.setAttribute("id", "printed")
+        results.appendChild(scoreP)
         humanScore++;
+        finishRound(humanScore, computerScore)
     }else if (humanLower === "paper" && computerLower === "scissors"){
-        alert("You lose! "+ "Computer chose: "+computerLower);
+        scoreP.textContent ="You lose! "+ "Computer chose: "+computerLower;
+        scoreP.setAttribute("id", "printed")
+        results.appendChild(scoreP)
         computerScore++;
+        finishRound(humanScore, computerScore)
     }else if (humanLower === "paper" && computerLower === "paper"){
-        alert("Tie!Play again");
+        scoreP.textContent ="Tie!Play again";
+        scoreP.setAttribute("id", "printed")
+        results.appendChild(scoreP)
         return 0
     }else if (humanLower === "scissors" && computerLower === "rock"){
-        alert("You lose! "+ "Computer chose: "+computerLower);
+        scoreP.textContent ="You lose! "+ "Computer chose: "+computerLower;
+        scoreP.setAttribute("id", "printed")
+        results.appendChild(scoreP)
         computerScore++;
+        finishRound(humanScore, computerScore)
     }else if (humanLower === "scissors" && computerLower === "paper"){
-        alert("You win! "+ "Computer chose: "+computerLower);
+        scoreP.textContent ="You win! "+ "Computer chose: "+computerLower;
+        scoreP.setAttribute("id", "printed")
+        results.appendChild(scoreP)
         humanScore++;
+        finishRound(humanScore, computerScore)
     }else if (humanLower === "scissors" && computerLower === "scissors"){
-        alert("Tie!Play again");
+        scoreP.textContent ="Tie!Play again";
+        scoreP.setAttribute("id", "printed")
+        results.appendChild(scoreP)
         return 0
     }else{
         alert("Gibberish Alert! The only acceptable options are 'Rock', 'Paper', or 'Scissors'. Try again.")
@@ -54,23 +82,57 @@ function playRound(human, computer){
     }
 }
 
-function playGame(){
-    for (let i=0; i<=4; i++){
-        humanSelection = getHumanChoice();
-        computerSelection = getComputerChoice();
-        let repeat = playRound(humanSelection, computerSelection);
-        if (repeat === 0){
-            i--;
+function finishRound(score1, score2){ //my naming should have been better, too many iterations of playerScore, humanScore, cpuScore, computerScore
+    let finalCheck = document.querySelector(".results");
+    let scoreP = document.createElement("p");
+    const check = document.getElementById("printed")
+    if (score1 == 5){
+        if (check){
+            check.remove()
         }
-        alert("Current Score - You:"+humanScore+" CPU: "+computerScore) 
+        scoreP.textContent ="YOU WIN THE GAME!"
+        scoreP.setAttribute("id", "final")
+        finalCheck.appendChild(scoreP)
+        humanScore = 0
+        computerScore = 0
+    }else if (computerScore == 5){
+        if (check){
+            check.remove()
+        }
+        scoreP.textContent = "YOU LOSE! :("
+        scoreP.setAttribute("id", "final")
+        finalCheck.appendChild(scoreP)
+        humanScore = 0
+        computerScore = 0
     }
-    alert("FINAL SCORE - You:"+humanScore+" CPU: "+computerScore) 
+}
+
+function playGame(sele){
+    humanSelection = sele;
+    computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
 }
 
 let humanScore = 0;
 let computerScore = 0;
-
 let humanSelection ;
 let computerSelection;
+let playerScore = document.querySelector('.player-score');
+let cpuScore = document.querySelector('.cpu-score');
+const buttons = document.querySelectorAll("button");
+const check = document.getElementById("printed")
 
-//playGame()
+buttons.forEach((button) =>{
+    button.addEventListener("click", () =>{
+        const check = document.getElementById("printed")
+        const checkFinal = document.getElementById("final")
+        //console.log(button.id)
+        if (check ){
+            check.remove()
+        }
+        playGame(button.id);
+        playerScore.textContent = humanScore;
+        cpuScore.textContent = computerScore;
+    })
+})
+

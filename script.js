@@ -127,8 +127,11 @@ buttons.forEach((button) =>{
         const check = document.getElementById("printed")
         const checkFinal = document.getElementById("final")
         //console.log(button.id)
-        if (check ){
+        if (check){
             check.remove()
+        }
+        if (checkFinal){
+            checkFinal.remove()
         }
         playGame(button.id);
         playerScore.textContent = humanScore;

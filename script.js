@@ -1,6 +1,5 @@
 function getComputerChoice(){
     let computerChoice = Math.floor(Math.random() * 3);
-    //console.log(computerChoice);
     if (computerChoice === 1 ){
         return "paper";
     }else if (computerChoice === 2){
@@ -19,12 +18,10 @@ function getHumanChoice(){
 function playRound(human, computer){ //this function is monstrous and needs refactoring
     humanLower = human.toLowerCase();
     computerLower = computer.toLowerCase();
-    //console.log(humanLower)
-    //console.log(computerLower)
+
     const results = document.querySelector(".results");
     const scoreP = document.createElement("p");
     if (humanLower === "rock" && computerLower === "paper"){
-        //alert("You lose! "+ "Computer chose: "+computerLower);
         scoreP.textContent = "You lose! "+ "Computer chose: "+computerLower
         scoreP.setAttribute("id", "printed")
         results.appendChild(scoreP)
@@ -144,23 +141,15 @@ buttons.forEach((button) =>{
         if (checkFinal){
             checkFinal.remove()
         }
-
-
-        //console.log(button.id)
         if (check){
             check.remove()
         } 
         if (checkFinal){
             checkFinal.remove()
         }
-        if (checkFinal){
-            checkFinal.remove()
-        }
         playGame(button.id);
-
         playerScore.textContent = humanScore;
         cpuScore.textContent = computerScore;
- 
     })
 })
 

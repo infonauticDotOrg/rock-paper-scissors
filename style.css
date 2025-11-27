@@ -2,23 +2,43 @@
     font-family: 'Retro Pixel', sans-serif;
     color:white;
     background-color: rgb(16, 13, 31);
+    margin-left:0;
+    margin-right:0;
+    padding-left:0;
+    padding-right:0;
 }
 
+html, body{
+    height: 100%;
+    margin: 0;
+
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  height: 100%; 
+  margin: 0;
+}
+
+
 .body-container{
-    max-width:2000px;
-    padding:20em 25%;
-    min-width:300px;
+
     display:flex;
     flex-direction: column;
     flex-wrap:wrap;
 }
 
 .btn-container{
+    box-sizing: border-box;
     display:flex;
     justify-content: space-evenly;
     border:solid rgb(58, 54, 80);
     padding:50px 0;
     border-top:none;
+    margin-left:0;
 }
 
 #printed{
@@ -39,14 +59,14 @@
 }
 
 img{
-    flex:1;
-    height:150px;
-    width:120px;
+    width: 100%;
+    max-width: 100px; /* optional max */
+    height: auto;
+    padding-left: 10px;
 }
 
 .header{
     border:solid rgb(58, 54, 80);
-    min-height: 200px;
     align-content:center;
     text-align:center;
     display: flex;
@@ -63,6 +83,7 @@ img{
     display:flex;
     justify-content:center;
     font-size:large;
+    flex-direction:column;
 }
 
 .overtext{
@@ -88,7 +109,4 @@ img{
 .footer{
     text-align:center;
     border: rgb(58, 54, 80);
-    max-width:1900px;
-    padding:15px 50px;
-
 }

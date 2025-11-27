@@ -24,15 +24,15 @@ function playRound(human, computer){ //this function is monstrous and needs refa
     const results = document.querySelector(".results");
     const scoreP = document.createElement("p");
     if (humanLower === "rock" && computerLower === "paper"){
-        //alert("You lose! "+ "Computer Pete chose: "+computerLower);
-        scoreP.textContent = "You lose! "+ "Computer Pete chose: "+computerLower
+        //alert("You lose! "+ "Computer chose: "+computerLower);
+        scoreP.textContent = "You lose! "+ "Computer chose: "+computerLower
         scoreP.setAttribute("id", "printed")
         results.appendChild(scoreP)
         computerScore++;
         finishRound(humanScore, computerScore)
         return
     }else if (humanLower === "rock" && computerLower === "scissors"){
-        scoreP.textContent = "You win! "+ "Computer Pete chose: "+computerLower;
+        scoreP.textContent = "You win! "+ "Computer chose: "+computerLower;
         scoreP.setAttribute("id", "printed")
         results.appendChild(scoreP)
         humanScore++;
@@ -95,6 +95,11 @@ function finishRound(score1, score2){ //my naming should have been better, too m
         finalCheck.appendChild(scoreP)
         humanScore = 0
         computerScore = 0
+        let playAgain = document.createElement("p")
+        playAgain.textContent = "Choose again to start over"
+        playAgain.setAttribute("id", "final")
+        finalCheck.appendChild(playAgain)
+
     }else if (computerScore == 5){
         if (check){
             check.remove()
@@ -104,13 +109,21 @@ function finishRound(score1, score2){ //my naming should have been better, too m
         finalCheck.appendChild(scoreP)
         humanScore = 0
         computerScore = 0
+        let playAgain = document.createElement("p")
+        playAgain.textContent ="Choose again to start over"
+        playAgain.setAttribute("id", "final")
+        finalCheck.appendChild(playAgain)
     }
 }
 
 function playGame(sele){
     humanSelection = sele;
     computerSelection = getComputerChoice();
+    const checkFinal = document.getElementById("final")
     playRound(humanSelection, computerSelection);
+    if (checkFinal){
+        checkFinal.remove()
+    }
 }
 
 let humanScore = 0;
@@ -121,21 +134,33 @@ let playerScore = document.querySelector('.player-score');
 let cpuScore = document.querySelector('.cpu-score');
 const buttons = document.querySelectorAll("button");
 const check = document.getElementById("printed")
+const checkFinal = document.getElementById("final")
 
 buttons.forEach((button) =>{
     button.addEventListener("click", () =>{
         const check = document.getElementById("printed")
         const checkFinal = document.getElementById("final")
+        const titles = document.getElementById("titles")
+        if (checkFinal){
+            checkFinal.remove()
+        }
+
+
         //console.log(button.id)
         if (check){
             check.remove()
+        } 
+        if (checkFinal){
+            checkFinal.remove()
         }
         if (checkFinal){
             checkFinal.remove()
         }
         playGame(button.id);
+
         playerScore.textContent = humanScore;
         cpuScore.textContent = computerScore;
+ 
     })
 })
 
